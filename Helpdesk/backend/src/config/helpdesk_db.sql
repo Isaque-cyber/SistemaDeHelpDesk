@@ -43,11 +43,11 @@ CREATE TABLE chamados (
     CONSTRAINT ck_chamados_prioridade CHECK (prioridade IN ('Baixa', 'Media', 'Alta')),
     CONSTRAINT ck_chamados_status CHECK (status IN ('Aberto', 'Em atendimento', 'Finalizado')),
     CONSTRAINT fk_chamado_categoria
-        FOREIGN KEY (categoria_id)   REFERENCES categorias(id) ON DELETE RESTRICT,
+        FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE RESTRICT,
     CONSTRAINT fk_chamado_solicitante
-        FOREIGN KEY (solicitante_id) REFERENCES usuarios(id)   ON DELETE RESTRICT,
+        FOREIGN KEY (solicitante_id) REFERENCES usuarios(id) ON DELETE RESTRICT,
     CONSTRAINT fk_chamado_tecnico
-        FOREIGN KEY (tecnico_id)     REFERENCES usuarios(id)   ON DELETE RESTRICT
+        FOREIGN KEY (tecnico_id) REFERENCES usuarios(id) ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
 CREATE TABLE historico_atendimentos (
@@ -66,11 +66,11 @@ CREATE TABLE historico_atendimentos (
 ) ENGINE=InnoDB;
 
 INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES
-  ('Ana Souza',     'ana@helpdesk.com',     '$2b$10$cJ0n2zuMDQBw5cKQTKbrA.G1sFzLz8HUY1QPWkd0Fj6o1p5EfQViS', 'Solicitante'),
-  ('Bruno Lima',    'bruno@helpdesk.com',   '$2b$10$WSeb8j8NY89gnQbmzqTqkefE.SH/L4QiEitNwKzXBd2PLakgiJmRS', 'Solicitante'),
-  ('Eduardo Rocha', 'eduardo@helpdesk.com', '$2b$10$F5F0Ck1QUyTqPh7ywd13aO2/gIlkWH2EpxVRFVuMzzcNpJcMVrt1q', 'Solicitante'),
-  ('Carlos Mendes', 'carlos@helpdesk.com',  '$2b$10$EXKvh4OekoSU3VB9eb21k.YWJR1stdwlngkQ7RhZn.NU3qduHgnke', 'Tecnico'),
-  ('Diana Costa',   'diana@helpdesk.com',   '$2b$10$uWw72KoBjYEb5aN0UQ//l.Px8DizLc5nYnXOpIEwd12dcVs5zj3BG', 'Tecnico');
+  ('Ana Souza',     'ana@helpdesk.com',     '$2b$10$TmpM525MQurryVGJI9SP0OLz.JHzlc3Lketwqp54N3DxnbJ19I1pe', 'Solicitante'),
+  ('Bruno Lima',    'bruno@helpdesk.com',   '$2b$10$TmpM525MQurryVGJI9SP0OLz.JHzlc3Lketwqp54N3DxnbJ19I1pe', 'Solicitante'),
+  ('Eduardo Rocha', 'eduardo@helpdesk.com', '$2b$10$TmpM525MQurryVGJI9SP0OLz.JHzlc3Lketwqp54N3DxnbJ19I1pe', 'Solicitante'),
+  ('Carlos Mendes', 'carlos@helpdesk.com',  '$2b$10$TmpM525MQurryVGJI9SP0OLz.JHzlc3Lketwqp54N3DxnbJ19I1pe', 'Tecnico'),
+  ('Diana Costa',   'diana@helpdesk.com',   '$2b$10$TmpM525MQurryVGJI9SP0OLz.JHzlc3Lketwqp54N3DxnbJ19I1pe', 'Tecnico');
 
 INSERT INTO categorias (nome) VALUES
   ('Hardware'),
@@ -122,3 +122,5 @@ VALUES
   (5, 4, '2026-11-06 14:00:00',
    'Chamado assumido pelo técnico. Aguardando troca do cabo de vídeo.',
    'Em atendimento');
+
+
