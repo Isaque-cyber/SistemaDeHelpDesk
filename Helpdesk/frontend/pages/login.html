@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Helpdesk</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="login-fundo">
+  <main class="login-cartao">
+    <div class="login-marca">
+      <span class="marca-icone">H</span>
+      <h1>Helpdesk</h1>
+      <p>Sistema de chamados de suporte técnico</p>
+    </div>
+
+    <form id="formLogin" novalidate>
+      <div id="alerta" class="alerta alerta-erro" role="alert" hidden></div>
+
+      <label class="campo">
+        <span>E-mail</span>
+        <input id="email" name="email" type="email" autocomplete="username" placeholder="seu@email.com" autofocus>
+      </label>
+
+      <label class="campo">
+        <span>Senha</span>
+        <input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha">
+      </label>
+
+      <button id="btnEntrar" class="btn btn-primario btn-bloco" type="submit">Entrar</button>
+    </form>
+  </main>
+  <script type="module" src="/assets/js/login.js"></script>
+</body>
+</html>

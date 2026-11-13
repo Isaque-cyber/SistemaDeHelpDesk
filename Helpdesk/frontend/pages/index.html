@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel | Helpdesk</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="marca" href="/"><span class="marca-icone">H</span><span>Helpdesk</span></a>
+    <div class="topbar-usuario">
+      <div class="usuario-info">
+        <strong id="usuarioNome"></strong>
+        <span id="usuarioPerfil" class="perfil"></span>
+      </div>
+      <button id="btnSair" class="btn btn-contorno-claro" type="button">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="cabecalho-pagina">
+      <div>
+        <h1 id="saudacao">Painel</h1>
+        <p id="escopo"></p>
+      </div>
+    </div>
+
+    <section class="grade-resumo" aria-label="Quantidade de chamados por status">
+      <div class="cartao resumo resumo-aberto">
+        <span>Abertos</span>
+        <strong id="qtdAberto">0</strong>
+      </div>
+      <div class="cartao resumo resumo-atendimento">
+        <span>Em atendimento</span>
+        <strong id="qtdAtendimento">0</strong>
+      </div>
+      <div class="cartao resumo resumo-finalizado">
+        <span>Finalizados</span>
+        <strong id="qtdFinalizado">0</strong>
+      </div>
+    </section>
+
+    <section class="grade-atalhos">
+      <a class="cartao atalho" href="/chamados">
+        <h2>Chamados</h2>
+        <p>Abra novos chamados, consulte e acompanhe suas solicitações.</p>
+        <span class="btn btn-primario">Abrir e consultar chamados</span>
+      </a>
+      <a id="atalhoAtendimento" class="cartao atalho" href="/atendimento" hidden>
+        <h2>Atendimento</h2>
+        <p>Assuma chamados, registre observações e finalize os atendimentos.</p>
+        <span class="btn btn-amarelo">Gerenciar atendimentos</span>
+      </a>
+    </section>
+  </main>
+  <script type="module" src="/assets/js/painel.js"></script>
+</body>
+</html>

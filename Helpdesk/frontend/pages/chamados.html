@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chamados | Helpdesk</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="marca" href="/"><span class="marca-icone">H</span><span>Helpdesk</span></a>
+    <div class="topbar-usuario">
+      <div class="usuario-info">
+        <strong id="usuarioNome"></strong>
+        <span id="usuarioPerfil" class="perfil"></span>
+      </div>
+      <button id="btnSair" class="btn btn-contorno-claro" type="button">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Chamados</h1>
+        <p id="escopo"></p>
+      </div>
+      <div>
+        <a class="btn btn-secundario" href="/">Voltar ao painel</a>
+        <button id="btnNovo" class="btn btn-primario" type="button">Novo chamado</button>
+      </div>
+    </div>
+
+    <div class="cartao barra-ferramentas">
+      <form id="formBusca" class="busca" role="search">
+        <input id="busca" type="search" placeholder="Buscar por número ou assunto" aria-label="Buscar chamado por número ou assunto">
+        <button class="btn btn-primario" type="submit">Buscar</button>
+        <button id="btnLimpar" class="btn btn-secundario" type="button">Limpar</button>
+      </form>
+      <span id="contagem"></span>
+    </div>
+
+    <div class="cartao tabela-envoltorio">
+      <table>
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Assunto</th>
+            <th id="thSolicitante" hidden>Solicitante</th>
+            <th>Categoria</th>
+            <th>Prioridade</th>
+            <th>Abertura</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabela"></tbody>
+      </table>
+      <div id="vazio" class="vazio" hidden>Nenhum chamado encontrado.</div>
+    </div>
+  </main>
+
+  <dialog id="dlgForm">
+    <form id="formChamado" novalidate>
+      <div class="dlg-cab">
+        <h2 id="formTitulo">Novo chamado</h2>
+        <button type="button" class="dlg-fechar" data-fechar aria-label="Fechar">&times;</button>
+      </div>
+      <div class="dlg-corpo">
+        <div id="formAlerta" class="alerta alerta-erro" role="alert" hidden></div>
+        <label class="campo">
+          <span>Assunto</span>
+          <input id="fAssunto" maxlength="150" placeholder="Resumo do problema">
+        </label>
+        <label class="campo">
+          <span>Descrição</span>
+          <textarea id="fDescricao" rows="5" maxlength="5000" placeholder="Descreva o problema com detalhes"></textarea>
+        </label>
+        <div class="linha">
+          <label class="campo">
+            <span>Categoria</span>
+            <select id="fCategoria"></select>
+          </label>
+          <label class="campo">
+            <span>Prioridade</span>
+            <select id="fPrioridade">
+              <option value="">Selecione</option>
+              <option value="Baixa">Baixa</option>
+              <option value="Media">Média</option>
+              <option value="Alta">Alta</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="dlg-rodape">
+        <button type="button" class="btn btn-secundario" data-fechar>Cancelar</button>
+        <button id="formSalvar" type="submit" class="btn btn-primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlgDetalhes">
+    <div class="dlg-cab">
+      <h2 id="detTitulo">Chamado</h2>
+      <button type="button" class="dlg-fechar" data-fechar aria-label="Fechar">&times;</button>
+    </div>
+    <div class="dlg-corpo" id="detCorpo"></div>
+    <div class="dlg-rodape">
+      <button type="button" class="btn btn-secundario" data-fechar>Fechar</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgExcluir" class="dlg-pequeno">
+    <div class="dlg-cab">
+      <h2>Excluir chamado</h2>
+      <button type="button" class="dlg-fechar" data-fechar aria-label="Fechar">&times;</button>
+    </div>
+    <div class="dlg-corpo">
+      <p id="excluirTexto"></p>
+    </div>
+    <div class="dlg-rodape">
+      <button type="button" class="btn btn-secundario" data-fechar>Cancelar</button>
+      <button id="btnConfirmarExcluir" type="button" class="btn btn-perigo">Excluir</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/assets/js/chamados.js"></script>
+</body>
+</html>

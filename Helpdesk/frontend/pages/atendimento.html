@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atendimento | Helpdesk</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="marca" href="/"><span class="marca-icone">H</span><span>Helpdesk</span></a>
+    <div class="topbar-usuario">
+      <div class="usuario-info">
+        <strong id="usuarioNome"></strong>
+        <span id="usuarioPerfil" class="perfil"></span>
+      </div>
+      <button id="btnSair" class="btn btn-contorno-claro" type="button">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Atendimento e gestão de chamados</h1>
+        <p>Chamados em ordem cronológica de abertura, do mais antigo para o mais recente.</p>
+      </div>
+      <a class="btn btn-secundario" href="/">Voltar ao painel</a>
+    </div>
+
+    <div class="atendimento-layout">
+      <section class="cartao" aria-label="Fila de chamados">
+        <div class="painel-titulo">Fila de chamados <span id="contagem"></span></div>
+        <ul id="fila" class="fila-lista"></ul>
+        <div id="filaVazia" class="vazio" hidden>Nenhum chamado cadastrado.</div>
+      </section>
+
+      <section class="cartao" aria-label="Detalhes do chamado">
+        <div class="painel-titulo" id="painelTitulo">Detalhes do chamado</div>
+        <div id="painelVazio" class="painel-vazio">Selecione um chamado na fila para ver as informações e as opções de atendimento.</div>
+        <div id="painelCorpo" class="painel-corpo" hidden>
+          <div id="detalhes"></div>
+
+          <div class="acoes-atendimento">
+            <h3 class="subtitulo">Atendimento</h3>
+            <div id="alertaAtendimento" class="alerta alerta-erro" role="alert" hidden></div>
+
+            <div class="acoes-botoes acoes-assumir">
+              <button id="btnAssumir" class="btn btn-amarelo" type="button">Assumir chamado</button>
+            </div>
+
+            <form id="formAtendimento" novalidate>
+              <label class="campo">
+                <span>Observações do atendimento</span>
+                <textarea id="observacao" rows="3" maxlength="5000" placeholder="Descreva o que foi feito no atendimento"></textarea>
+              </label>
+              <label class="campo">
+                <span>Descrição da solução (obrigatória para finalizar)</span>
+                <textarea id="solucao" rows="3" maxlength="5000" placeholder="Descreva a solução aplicada"></textarea>
+              </label>
+              <label class="campo">
+                <span>Data e hora do atendimento</span>
+                <input id="dataHora" type="datetime-local" step="1">
+              </label>
+              <div class="acoes-botoes">
+                <button id="btnRegistrar" class="btn btn-primario" type="submit">Registrar atualização</button>
+                <button id="btnFinalizar" class="btn btn-sucesso" type="button">Finalizar chamado</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/assets/js/atendimento.js"></script>
+</body>
+</html>
